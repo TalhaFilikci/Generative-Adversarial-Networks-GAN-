@@ -1,4 +1,4 @@
-# Generative-Adversarial-Networks-GAN
+# Generative-Adversarial-Networks (GANs)
 **Generative Adversarial Networks with FashionMNIST-Dataset**
 
 In principle, a GAN consists of two deep learning networks that operate in an adversarial relationship.
@@ -15,12 +15,17 @@ Training a GAN consists of two opposing processes:
 As shown in the figure below, in this process the generator produces imitations of images, i.e., it performs inference only.
 
 
-![Figure 1: overview of the discriminator training loop!](https://github.com/TalhaFilikci/Generative-Adversarial-Networks-GAN-/blob/main/figure_1.PNG?raw=true)
+| ![figure_1.PNG](https://github.com/TalhaFilikci/Generative-Adversarial-Networks-GAN-/blob/main/figure_1.PNG?raw=true) | 
+|:--:| 
+| *Figure 1: overview of the discriminator training loop* |
 
 
 2. generator training:
 The discriminator evaluates the imitations produced by the generator. Here, it is the discriminator that performs inference only, while the generator uses this information to learn.
 
+| ![figure_2.PNG](https://github.com/TalhaFilikci/Generative-Adversarial-Networks-GAN-/blob/main/figure_2.PNG?raw=true) | 
+|:--:| 
+| *Figure 2: overview of the generator training loop* |
 
 That is, in either process, one of the models produces its output (either a fake image or a prediction about whether the image is fake), but do not train; and the other model uses the output to learn to do its task better.
 
@@ -42,8 +47,30 @@ Let us now turn to the process that alternates with discriminator training: gene
 - The discriminator outputs predictions as to whether a given input image is real or fake.
 - Cross-entropy costs are used here to fine-tune the parameters of the generator network. By minimizing this cost, the generator learns to produce fakes, which the discriminator falsely labels as true.
 
-How good the images become from the generator after each epoch can be seen in the figure below. After the first run, the discriminator loss is 0.6676 and the generator loss is 0.715.
+How good the fake images become from the generator after each epoch can be seen in the figure below. 
+
+After the first run, the discriminator loss is 0.6676 and the generator loss is 0.715.
+| ![GAN_epoch_1.PNG](https://github.com/TalhaFilikci/Generative-Adversarial-Networks-GAN-/blob/main/GAN_epoch_1.PNG?raw=true) | 
+|:--:| 
+| *Figure 3: fake images after first epoch* |
+
 After 50 epochs the discriminator loss is 0.5312 and the generator loss is 0.934.
+
+| ![GAN_epoch_2.PNG](https://github.com/TalhaFilikci/Generative-Adversarial-Networks-GAN-/blob/main/GAN_epoch_50.PNG?raw=true) | 
+|:--:| 
+| *Figure 4: fake images after last epoch* |
+
+
+**References**
+
+- Deep Learning illustriert by John Krohn, Grant Beyleveld, Aglae Bassens, 2020 dpunkt.verlag GmbH
+- Parth Dhameliya, Deep Learning with Pytorch
+
+  
+For questions and suggestions:
+
+
+[Talha Filikci](mailto:talhafilikci@gmail.com?subject=[Github])
 
 
 
