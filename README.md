@@ -1,4 +1,4 @@
-# Generative-Adversarial-Networks-GAN-
+# Generative-Adversarial-Networks-GAN
 **Generative Adversarial Networks with FashionMNIST-Dataset**
 
 In principle, a GAN consists of two deep learning networks that operate in an adversarial relationship.
@@ -14,6 +14,10 @@ Training a GAN consists of two opposing processes:
 1. discriminator training:
 As shown in the figure below, in this process the generator produces imitations of images, i.e., it performs inference only.
 
+
+![Figure 1: overview of the discriminator training loop!](https://github.com/TalhaFilikci/Generative-Adversarial-Networks-GAN-/blob/main/figure_1.PNG?raw=true)
+
+
 2. generator training:
 The discriminator evaluates the imitations produced by the generator. Here, it is the discriminator that performs inference only, while the generator uses this information to learn.
 
@@ -24,21 +28,22 @@ During the entire training process, generator training interchanges with discrim
 
 Let's take a closer look at both processes, starting with discriminator training (see Figure 1).
 
--The generator produces imitated images. These imitations are mixed with batches of real images and fed into the discriminator for training.
--The discriminator outputs a prediction corresponding to the probability that the image is real.
--Cross entropy costs are calculated for the discriminator's predictions compared to the true labels.
--Using backpropagation tuning of the discriminator's parameters, the cost is minimized to train the model to better distinguish the real images from the fake ones.
+- The generator produces imitated images. These imitations are mixed with batches of real images and fed into the discriminator for training.
+- The discriminator outputs a prediction corresponding to the probability that the image is real.
+- Cross entropy costs are calculated for the discriminator's predictions compared to the true labels.
+- Using backpropagation tuning of the discriminator's parameters, the cost is minimized to train the model to better distinguish the real images from the fake ones.
 
 During the discriminator training only the discriminator learns! The generator network is not involved in the backpropagation and therefore does not learn anything.
 
 Let us now turn to the process that alternates with discriminator training: generator training (see Figure 2):
 
--the generator receives a random noise vector as input and generates an imitated image as output.
--The imitated images produced by the generator are fed directly into the discriminator. Crucial to this process is that we declare all the fake images to be real ones.
--The discriminator outputs predictions as to whether a given input image is real or fake.
--Cross entropy costs are used here to fine-tune the parameters of the generator network. By minimizing this cost, the generator learns to produce fakes, which the discriminator falsely labels as true.
+- The generator receives a random noise vector as input and generates an imitated image as output.
+- The imitated images produced by the generator are fed directly into the discriminator. Crucial to this process is that we declare all the fake images to be real ones.
+- The discriminator outputs predictions as to whether a given input image is real or fake.
+- Cross-entropy costs are used here to fine-tune the parameters of the generator network. By minimizing this cost, the generator learns to produce fakes, which the discriminator falsely labels as true.
 
 How good the images become from the generator after each epoch can be seen in the figure below. After the first run, the discriminator loss is 0.6676 and the generator loss is 0.715.
 After 50 epochs the discriminator loss is 0.5312 and the generator loss is 0.934.
+
 
 
